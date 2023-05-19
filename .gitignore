@@ -1,0 +1,4 @@
+.env
+home_shopping_mart/__pycache__
+shoppingApp/__pycache__
+shoppingApp/migrations
