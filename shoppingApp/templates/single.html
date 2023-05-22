@@ -3,17 +3,17 @@
 {% block title %} Single Page {% endblock title %}
 {% block content %}
 
-			<div class="w3l_banner_nav_right_banner3">
+			<div class="w3l_banner_nav_right_banner3" style="background: url({{ MEDIA_URL }}/static/12.jpg) no-repeat 0px 0px;">
 				<h3>Best Deals For New Products<span class="blink_me"></span></h3>
 			</div>
 			<div class="agileinfo_single">
-				<h5>charminar pulao basmati rice 5 kg</h5>
+				<h5>{{object.Product_name}}</h5>
 				<div class="col-md-4 agileinfo_single_left">
-					<img id="example" src="images/76.png" alt=" " class="img-responsive" />
+					<img id="example" src="{{object.product_img.url}}" alt=" " class="img-responsive" />
 				</div>
 				<div class="col-md-8 agileinfo_single_right">
 					<div class="rating1">
-						<span class="starRating">
+						<span class="starRating"> Ratings:
 							<input id="rating5" type="radio" name="rating" value="5">
 							<label for="rating5">5</label>
 							<input id="rating4" type="radio" name="rating" value="4">
@@ -28,11 +28,11 @@
 					</div>
 					<div class="w3agile_description">
 						<h4>Description :</h4>
-						<p>Fresh Vegetables for you in HomeShopingMart.</p>
+						<p>{{object.description}} </p>
 					</div>
 					<div class="snipcart-item block">
 						<div class="snipcart-thumb agileinfo_single_right_snipcart">
-							<h4>210.00 <span>250.00</span></h4>
+							<h4> {{object.price}} <span>250.00</span></h4>
 						</div>
 						<div class="snipcart-details agileinfo_single_right_details">
 							<form action="#" method="post">
@@ -74,7 +74,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/5.png" alt=" " class="img-responsive" /></a>
 											<p>knorr instant soup (100 gm)</p>
 											<h4>30.00 <span>50.00</span></h4>
 										</div>
@@ -110,7 +110,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/6.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/6.png" alt=" " class="img-responsive" /></a>
 											<p>chings noodles (75 gm)</p>
 											<h4>50.00 <span>80.00</span></h4>
 										</div>
@@ -146,7 +146,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/7.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/7.png" alt=" " class="img-responsive" /></a>
 											<p>lahsun sev (150 gm)</p>
 											<h4>30.00 <span>50.00</span></h4>
 										</div>
@@ -182,7 +182,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/8.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/8.png" alt=" " class="img-responsive" /></a>
 											<p>premium bake rusk (300 gm)</p>
 											<h4>50.00 <span>70.00</span></h4>
 										</div>
@@ -222,7 +222,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/9.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/9.png" alt=" " class="img-responsive" /></a>
 											<p>fresh spinach (palak)</p>
 											<h4>20.00 <span>30.00</span></h4>
 										</div>
@@ -258,7 +258,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/10.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/10.png" alt=" " class="img-responsive" /></a>
 											<p>fresh mango dasheri (1 kg)</p>
 											<h4>50.00 <span>80.00</span></h4>
 										</div>
@@ -292,7 +292,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/11.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/11.png" alt=" " class="img-responsive" /></a>
 											<p>fresh apple red (1 kg)</p>
 											<h4>60.00 <span>80.00</span></h4>
 										</div>
@@ -328,7 +328,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/12.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/12.png" alt=" " class="img-responsive" /></a>
 											<p>fresh broccoli (500 gm)</p>
 											<h4>40.00 <span>60.00</span></h4>
 										</div>
@@ -368,7 +368,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/13.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/13.png" alt=" " class="img-responsive" /></a>
 											<p>mixed fruit juice (1 ltr)</p>
 											<h4>30.00 <span>40.00</span></h4>
 										</div>
@@ -404,7 +404,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/14.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/14.png" alt=" " class="img-responsive" /></a>
 											<p>prune juice - sunsweet (1 ltr)</p>
 											<h4>40.00 <span>50.00</span></h4>
 										</div>
@@ -438,7 +438,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/15.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/15.png" alt=" " class="img-responsive" /></a>
 											<p>coco cola zero can (330 ml)</p>
 											<h4>30.00 <span>50.00</span></h4>
 										</div>
@@ -474,7 +474,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/16.png" alt=" " class="img-responsive" /></a>
+											<a href="#"><img src="images/16.png" alt=" " class="img-responsive" /></a>
 											<p>sprite bottle (2 ltr)</p>
 											<h4>30.00 <span>40.00</span></h4>
 										</div>

@@ -1,12 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DeleteView, View, DetailView, UpdateView, CreateView, TemplateView
-from .models import User
+from .models import *
 from django.http import HttpResponse
 
 # Create your views here.
+# **************** Home Page ******************
 class HomeView(TemplateView):
     template_name = "index.html"
 
+# **************** For User Sign-in & Sign-Up ******************
 class LoginView(View):
     def get(self, request):
         return render(request, 'login.html')
@@ -31,6 +33,7 @@ class LoginView(View):
 #     template_name = 'login.html'
 #     success_url = 'login'
 
+# **************** For User Sign-out ******************
 class LogoutView(View):
     def get(self, request):
         request.session.flush()
@@ -57,10 +60,13 @@ class HouseholdView(TemplateView):
     
 class VegitablesView(TemplateView):
     template_name = "vegetables.html"
-    
-class SingleView(TemplateView):
+
+class SingleView(DetailView):
+    model = Products
     template_name = "single.html"
-    
+    # context_object_name="obj"                      or
+    # by default in html page: object_list.example     
+
 class ShortCodesView(TemplateView):
     template_name = "short-codes.html"
     
@@ -82,5 +88,14 @@ class FaqsView (TemplateView):
 class DrinksView (TemplateView):
     template_name = "drinks.html"
     
-class BreadView (TemplateView):
+class BreadView (ListView):
+    model = Products
     template_name = "bread.html"
+    # context_object_name="obj"                        or
+    # by default in html page: object_list.example     or
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        p_type = "Bread & Bakery"
+        obj = Products.objects.filter(product_type = p_type)
+        context["obj"] = obj
+        return context
