@@ -1,32 +1,32 @@
 {% extends 'base.html' %}
 {% block title %} Home Page {% endblock title %}
 {% block content %}
+{% load static %}
 
-		<div class="w3l_banner_nav_right">
 			<section class="slider">
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
-							<div class="w3l_banner_nav_right_banner">
+							<div class="w3l_banner_nav_right_banner" style="background: url({{ MEDIA_URL }}/static/1.jpg) no-repeat 0px 0px;">
 								<h3>Make your <span>food</span> with Spicy.</h3>
 								<div class="more">
-									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+									<a href="{% url 'products' %}" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
 								</div>
 							</div>
 						</li>
 						<li>
-							<div class="w3l_banner_nav_right_banner1">
+							<div class="w3l_banner_nav_right_banner1" style="background: url({{ MEDIA_URL }}/static/2.jpg) no-repeat 0px 0px;">
 								<h3>Make your <span>food</span> with Spicy.</h3>
 								<div class="more">
-									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+									<a href="{% url 'products' %}" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
 								</div>
 							</div>
 						</li>
 						<li>
-							<div class="w3l_banner_nav_right_banner2">
+							<div class="w3l_banner_nav_right_banner2" style="background: url({{ MEDIA_URL }}/static/3.jpg) no-repeat 0px 0px;">
 								<h3>upto <i>50%</i> off.</h3>
 								<div class="more">
-									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+									<a href="{% url 'products' %}" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
 								</div>
 							</div>
 						</li>
@@ -34,8 +34,8 @@
 				</div>
 			</section>
 			<!-- flexSlider -->
-				<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
-				<script defer src="js/jquery.flexslider.js"></script>
+				<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" property="" />
+				<script defer src="{% static 'js/jquery.flexslider.js' %}"></script>
 				<script type="text/javascript">
 				$(window).load(function(){
 				  $('.flexslider').flexslider({
@@ -57,15 +57,16 @@
 			<div class="wthree_banner_bottom_left_grid_sub1">
 				<div class="col-md-4 wthree_banner_bottom_left">
 					<div class="wthree_banner_bottom_left_grid">
-						<img src="images/4.jpg" alt=" " class="img-responsive" />
+						<img src="{{ MEDIA_URL }}static/4.jpg" alt=" " class="img-responsive" />
 						<div class="wthree_banner_bottom_left_grid_pos">
 							<h4>Discount Offer <span>25%</span></h4>
 						</div>
 					</div>
 				</div>
+<!--				<img src="{{ MEDIA_URL }}{{i.image}}" alt="">          -->
 				<div class="col-md-4 wthree_banner_bottom_left">
 					<div class="wthree_banner_bottom_left_grid">
-						<img src="images/5.jpg" alt=" " class="img-responsive" />
+						<img src="{{ MEDIA_URL }}static/5.jpg" alt=" " class="img-responsive" />
 						<div class="wthree_banner_btm_pos">
 							<h3>introducing <span>best store</span> for <i>groceries</i></h3>
 						</div>
@@ -73,7 +74,7 @@
 				</div>
 				<div class="col-md-4 wthree_banner_bottom_left">
 					<div class="wthree_banner_bottom_left_grid">
-						<img src="images/6.jpg" alt=" " class="img-responsive" />
+						<img src="{{ MEDIA_URL }}static/6.jpg" alt=" " class="img-responsive" />
 						<div class="wthree_banner_btm_pos1">
 							<h3>Save <span>Upto</span> 500</h3>
 						</div>
@@ -96,7 +97,7 @@
 								<figure>
 									<div class="snipcart-item block" >
 										<div class="snipcart-thumb">
-											<a href="single.html"><img title=" " alt=" " src="images/1.png" /></a>		
+											<a href="{% url 'single' %}"><img title=" " alt=" " src="images/1.png" /></a>		
 											<p>fortune sunflower oil</p>
 											<h4>799 <span>400.00</span></h4>
 										</div>
@@ -129,7 +130,7 @@
 								<figure>
 									<div class="snipcart-item block" >
 										<div class="snipcart-thumb">
-											<a href="single.html"><img title=" " alt=" " src="images/3.png" /></a>		
+											<a href="{% url 'single' %}"><img title=" " alt=" " src="images/3.png" /></a>		
 											<p>basmati rise (5 Kg)</p>
 											<h4>1199 <span>805.00</span></h4>
 										</div>
@@ -165,7 +166,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="single.html"><img src="images/2.png" alt=" " class="img-responsive" /></a>
+											<a href="{% url 'single' %}"><img src="images/2.png" alt=" " class="img-responsive" /></a>
 											<p>Pepsi soft drink (2 Ltr)</p>
 											<h4>628.00 <span>850.00</span></h4>
 										</div>
@@ -201,7 +202,7 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="single.html"><img src="images/4.png" alt=" " class="img-responsive" /></a>
+											<a href="{% url 'single' %}"><img src="images/4.png" alt=" " class="img-responsive" /></a>
 											<p>dogs food (4 Kg)</p>
 											<h4>569.00 <span>500.00</span></h4>
 										</div>
@@ -240,16 +241,16 @@
 				<div class="col-md-3 w3l_fresh_vegetables_grid w3l_fresh_vegetables_grid_left">
 					<div class="w3l_fresh_vegetables_grid2">
 						<ul>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="products.html">All Brands</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="vegetables.html">Vegetables</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="vegetables.html">Fruits</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="drinks.html">Juices</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="pet.html">Pet Food</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="bread.html">Bread & Bakery</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="household.html">Cleaning</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="products.html">Spices</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="products.html">Dry Fruits</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="products.html">Dairy Products</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'products' %}">All Brands</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'vegetables' %}">Vegetables</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'vegetables' %}">Fruits</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'drinks' %}">Juices</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'pet' %}">Pet Food</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'bread' %}">Bread & Bakery</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'household' %}">Cleaning</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'products' %}">Spices</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'products' %}">Dry Fruits</a></li>
+							<li><i class="fa fa-check" aria-hidden="true"></i><a href="{% url 'products' %}">Dairy Products</a></li>
 						</ul>
 					</div>
 				</div>
@@ -265,7 +266,7 @@
 								<img src="images/7.jpg" alt=" " class="img-responsive" />
 								<div class="w3l_fresh_vegetables_grid1_rel_pos">
 									<div class="more m1">
-										<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+										<a href="{% url 'products' %}" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
 									</div>
 								</div>
 							</div>

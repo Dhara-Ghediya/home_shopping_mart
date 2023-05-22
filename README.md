@@ -1,5 +1,5 @@
-# home_shopping_mart
-Here's a list of commonly used class-based generic views in Django:
+# Home Shopping Mart
+***Here's a list of commonly used class-based generic views in Django:***
 
 - ListView: Displays a list of objects from a model.
 - DetailView: Displays the details of a single object from a model.
