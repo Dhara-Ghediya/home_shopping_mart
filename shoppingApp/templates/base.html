@@ -62,13 +62,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</form>
 		</div>
 		<div class="product_list_header">  
-			<form action="#" method="post" class="last">
+            <a href="{% url 'view_cart' %}">
+            <input type="submit" name="submit" value="View your cart" class="button" /></a>
+			<!-- <form action="#" method="post" class="last">
                 <fieldset>
                     <input type="hidden" name="cmd" value="_cart" />
                     <input type="hidden" name="display" value="1" />
                     <input type="submit" name="submit" value="View your cart" class="button" />
                 </fieldset>
-            </form>
+            </form> -->
 		</div>
 		<div class="w3l_header_right">
 			<ul>
@@ -161,6 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                 <ul class="nav navbar-nav nav_1">
+                    <li><a href="{% url 'all_products' %}">All Products</a></li>
                     <li><a href="{% url 'products' %}">Branded Foods</a></li>
                     <li><a href="{% url 'household' %}">Households</a></li>
                     <li class="dropdown mega-dropdown active">
@@ -183,6 +186,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul>
                                     <li><a href="{% url 'drinks' %}">Soft Drinks</a></li>
                                     <li><a href="{% url 'drinks' %}">Juices</a></li>
+                                    <li><a href="{% url 'drinks' %}">Energy Drinks</a></li>
                                 </ul>
                             </div>                  
                         </div>	
@@ -204,6 +208,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              </div><!-- /.navbar-collapse -->
         </nav>
     </div>
+    {% if messages %}
+    <div class="messages">
+    {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+            {{ message }}
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}
+
     <div class="w3l_banner_nav_right">
 
 {% block content %}
@@ -320,7 +334,7 @@ $(".dropdown").hover(
         /*
             var defaults = {
             containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
+            containerHoverID: ' ', // fading element hover id
             scrollSpeed: 1200,
             easingType: 'linear' 
             };
@@ -330,7 +344,7 @@ $(".dropdown").hover(
                             
         });
 </script>
-<!-- //here ends scrolling icon -->
+<!-- //here ends scrolling icon 
 <script src="{% static 'js/minicart.min.js' %}"></script>
 <script>
 // Mini Cart
@@ -341,6 +355,6 @@ paypal.minicart.render({
 if (~window.location.search.indexOf('reset=true')) {
     paypal.minicart.reset();
 }
-</script>
+</script>-->
 </body>
 </html>

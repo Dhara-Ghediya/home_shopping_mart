@@ -2,13 +2,14 @@
 {% block title %} Households {% endblock title %}
 {% block content %}
 
-			<div class="w3l_banner_nav_right_banner4">
+			<div class="w3l_banner_nav_right_banner4"  style="background: url({{ MEDIA_URL }}/static/16.jpg) no-repeat 0px 0px;">
 				<h3>Best Deals For New Products<span class="blink_me"></span></h3>
 			</div>
 			<div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_sub">
 				<h3>Household Products</h3>
 				<div class="w3ls_w3l_banner_nav_right_grid1">
 					<h6>cleaning</h6>
+					{% for product in cleaning %}
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
@@ -19,23 +20,27 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/17.png" alt=" " class="img-responsive" /></a>
-											<p>dishwash gel, lemon  (1.5 ltr)</p>
-											<h4>80.00 <span>100.00</span></h4>
+											<a href="{% url 'single' product.pk %}"><img src="{{product.product_img.url}}" alt=" " class="img-responsive" /></a>
+											<p>{{product.Product_name}}</p>
+											<h4>{{product.price}} <span>120.00</span></h4>
 										</div>
 										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
+											<form action="/household" method="post">
+												{% csrf_token %}
+												<fieldset><!--
 													<input type="hidden" name="cmd" value="_cart" />
 													<input type="hidden" name="add" value="1" />
 													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="dishwash gel, lemon" />
-													<input type="hidden" name="amount" value="80.00" />
+													<input type="hidden" name="item_name" value="{{ bread.Product_name}}" />
+													<input type="hidden" name="amount" value="{{ bread.price}}" />
 													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
+													<input type="hidden" name="currency_code" value="" /RS>
 													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
+													<input type="hidden" name="cancel_return" value=" " />-->
+													<input type="hidden" name="id" value="{{product.pk}}">
+													<a href="{% url 'household' %}" style="color: black;">
+														<input type="submit" name="submit" value="Add to cart" class="button" />
+													</a>
 												</fieldset>
 											</form>
 										</div>
@@ -45,118 +50,12 @@
 						</div>
 						</div>
 					</div>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/18.png" alt=" " class="img-responsive" /></a>
-											<p>dish wash bar (500 gm)</p>
-											<h4>20.00 <span>40.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="dish wash bar" />
-													<input type="hidden" name="amount" value="20.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/19.png" alt=" " class="img-responsive" /></a>
-											<p>air freshener (50 gm)</p>
-											<h4>30.00 <span>50.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="air freshener" />
-													<input type="hidden" name="amount" value="30.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/20.png" alt=" " class="img-responsive" /></a>
-											<p>toilet cleaner expert (1 ltr)</p>
-											<h4>60.00 <span>70.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="toilet cleaner expert" />
-													<input type="hidden" name="amount" value="60.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
+					{% endfor %}
 					<div class="clearfix"> </div>
 				</div>
 				<div class="w3ls_w3l_banner_nav_right_grid1">
 					<h6>utensils</h6>
+					{% for product in utensils %}
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
@@ -167,23 +66,27 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/21.png" alt=" " class="img-responsive" /></a>
-											<p>princeware packaging container pack (6 no's)</p>
-											<h4>80.00 <span>100.00</span></h4>
+											<a href="{% url 'single' product.pk %}"><img src="{{product.product_img.url}}" alt=" " class="img-responsive" /></a>
+											<p>{{product.Product_name}}</p>
+											<h4>{{product.price}} <span>120.00</span></h4>
 										</div>
 										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
+											<form action="/household" method="post">
+												{% csrf_token %}
+												<fieldset><!--
 													<input type="hidden" name="cmd" value="_cart" />
 													<input type="hidden" name="add" value="1" />
 													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="princeware container" />
-													<input type="hidden" name="amount" value="80.00" />
+													<input type="hidden" name="item_name" value="{{ bread.Product_name}}" />
+													<input type="hidden" name="amount" value="{{ bread.price}}" />
 													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
+													<input type="hidden" name="currency_code" value="" /RS>
 													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
+													<input type="hidden" name="cancel_return" value=" " />-->
+													<input type="hidden" name="id" value="{{product.pk}}">
+													<a href="{% url 'household' %}" style="color: black;">
+														<input type="submit" name="submit" value="Add to cart" class="button" />
+													</a>
 												</fieldset>
 											</form>
 										</div>
@@ -193,258 +96,7 @@
 						</div>
 						</div>
 					</div>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/22.png" alt=" " class="img-responsive" /></a>
-											<p>signoraware container center press (900 ml)</p>
-											<h4>50.00 <span>80.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="container center press" />
-													<input type="hidden" name="amount" value="50.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="tag"><img src="images/tag.png" alt=" " class="img-responsive" /></div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/23.png" alt=" " class="img-responsive" /></a>
-											<p>ship stainless steel sauce pan single (1 pc)</p>
-											<h4>06.00 <span>80.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="stainless steel pan" />
-													<input type="hidden" name="amount" value="60.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/24.png" alt=" " class="img-responsive" /></a>
-											<p>omega stainless steel puri dabba (1 pc)</p>
-											<h4>60.00 <span>80.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="stainless steel dabba" />
-													<input type="hidden" name="amount" value="60.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="w3ls_w3l_banner_nav_right_grid1">
-					<h6>Pet Food</h6>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/25.png" alt=" " class="img-responsive" /></a>
-											<p>food for adult dogs (80 gms)</p>
-											<h4>30.00 <span>40.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="food for adult dogs" />
-													<input type="hidden" name="amount" value="30.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/26.png" alt=" " class="img-responsive" /></a>
-											<p>young adult dogs (1.2 kg)</p>
-											<h4>60.00 <span>100.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="young adult dogs" />
-													<input type="hidden" name="amount" value="60.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="tag"><img src="images/tag.png" alt=" " class="img-responsive" /></div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/27.png" alt=" " class="img-responsive" /></a>
-											<p>cat food ocean fish (1.4 kg)</p>
-											<h4>60.00 <span>70.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="cat food ocean fish" />
-													<input type="hidden" name="amount" value="60.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 w3ls_w3l_banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="{% url 'single' %}"><img src="images/28.png" alt=" " class="img-responsive" /></a>
-											<p>chicken in jelly can (400 gm)</p>
-											<h4>70.00 <span>90.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="chicken in jelly can" />
-													<input type="hidden" name="amount" value="70.00" />
-													<input type="hidden" name="discount_amount" value="10.00" />
-													<input type="hidden" name="currency_code" value="RS" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
+					{% endfor %}
 					<div class="clearfix"> </div>
 				</div>
 			</div>

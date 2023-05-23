@@ -9,3 +9,7 @@ admin.site.register(User, UserAdmin)
 class ProductsAdmin(admin.ModelAdmin):
     list_display = ['Product_name', 'product_type', 'price']
 admin.site.register(Products, ProductsAdmin)
+
+class AddToCartAdmin(admin.ModelAdmin):
+    list_display = ["user", "product", "quantity"]
+admin.site.register(AddToCart, AddToCartAdmin)

@@ -22,6 +22,9 @@ urlpatterns = [
     path('faqs', views.FaqsView.as_view(), name="faqs"), 
     path('drinks', views.DrinksView.as_view(), name="drinks"), 
     path('bread', views.BreadView.as_view(), name="bread"), 
-    path('pet', views.PetView.as_view(), name="pet")
+    path('pet', views.PetView.as_view(), name="pet"),
+    path('all-products', views.AllProductsView.as_view(), name="all_products"),
+    # path('add-to-cart', views.AddToCartView.as_view(), name="add_to_cart"),
+    path('view-cart', views.viewCartView.as_view(), name="view_cart")
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

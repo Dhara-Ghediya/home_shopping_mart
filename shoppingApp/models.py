@@ -18,4 +18,7 @@ class Products(models.Model):
     def __str__(self):
         return self.Product_name
     
-    
+class AddToCart(models.Model):
+    user = models.CharField(max_length=100)
+    product = models.ForeignKey(Products, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
