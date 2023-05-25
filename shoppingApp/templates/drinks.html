@@ -14,16 +14,19 @@
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+							{% if beverage.avg > 0 %}
 							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
+								<img src="{{ MEDIA_URL }}static/offer.png" alt=" " class="img-responsive" />
 							</div>
+							{% endif %}
+							
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
 											<a href="{% url 'single' beverage.pk %}"><img src="{{beverage.product_img.url}}" alt=" " class="img-responsive" /></a>
 											<p> {{beverage.Product_name}} </p>
-											<h4>{{beverage.price}} <span>70.00</span></h4>
+											<h4> {{ beverage.disc}} <span>{{ beverage.price}}</span> | ( {{beverage.avg}}% off)</h4>
 										</div>
 										<div class="snipcart-details">
 											<form action="/drinks" method="post">
@@ -60,16 +63,18 @@
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+							{% if beverage.avg > 0 %}
 							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
+								<img src="{{ MEDIA_URL }}static/offer.png" alt=" " class="img-responsive" />
 							</div>
+							{% endif %}
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
 											<a href="{% url 'single' beverage.pk %}"><img src="{{beverage.product_img.url}}" alt=" " class="img-responsive" /></a>
 											<p> {{beverage.Product_name}} </p>
-											<h4>{{beverage.price}} <span>70.00</span></h4>
+											<h4> {{ beverage.disc}} <span>{{ beverage.price}}</span> | ( {{beverage.avg}}% off)</h4>
 										</div>
 										<div class="snipcart-details">
 											<form action="/drinks" method="post">
@@ -106,16 +111,18 @@
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+							{% if beverage.avg > 0 %}
 							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
+								<img src="{{ MEDIA_URL }}static/offer.png" alt=" " class="img-responsive" />
 							</div>
+							{% endif %}
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
 											<a href="{% url 'single' beverage.pk %}"><img src="{{beverage.product_img.url}}" alt=" " class="img-responsive" /></a>
 											<p> {{beverage.Product_name}} </p>
-											<h4>{{beverage.price}} <span>70.00</span></h4>
+											<h4> {{ beverage.disc}} <span>{{ beverage.price}}</span> | ( {{beverage.avg}}% off)</h4>
 										</div>
 										<div class="snipcart-details">
 											<form action="/drinks" method="post">

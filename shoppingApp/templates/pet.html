@@ -16,16 +16,18 @@
 					<div class="col-md-3 w3ls_w3l_banner_left w3ls_w3l_banner_left_asdfdfd">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+							{% if food.avg > 0 %}
 							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
+								<img src="{{ MEDIA_URL }}static/offer.png" alt=" " class="img-responsive" />
 							</div>
+							{% endif %}
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
 											<a href="{% url 'single' food.pk %}"><img src="{{food.product_img.url}}" alt=" " class="img-responsive" /></a>
 											<p>{{food.Product_name}}</p>
-											<h4>{{food.price}} <span>120.00</span></h4>
+											<h4> {{ food.disc}} <span>{{ food.price}}</span> | ( {{food.avg}}% off)</h4>
 										</div>
 										<div class="snipcart-details">
 											<form action="/pet" method="post">

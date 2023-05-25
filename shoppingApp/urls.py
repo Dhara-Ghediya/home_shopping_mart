@@ -25,6 +25,7 @@ urlpatterns = [
     path('pet', views.PetView.as_view(), name="pet"),
     path('all-products', views.AllProductsView.as_view(), name="all_products"),
     # path('add-to-cart', views.AddToCartView.as_view(), name="add_to_cart"),
-    path('view-cart', views.viewCartView.as_view(), name="view_cart")
+    path('view-cart', views.viewCartView.as_view(), name="view_cart"),
+    path('search', views.SearchView.as_view(), name="search")
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

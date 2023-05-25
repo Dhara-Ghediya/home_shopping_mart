@@ -16,6 +16,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-autocomplete -->
+<script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+<link   rel="stylesheet"   href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css" />
+<script src= "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"> </script>  
+    
+    <script src=  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">      </script>  
+    
+    <link href=  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" /> 
 <!-- //for-mobile-apps -->
 <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
@@ -45,6 +54,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     #rating5::after, #rating4::after, #rating3::after, #rating2::after, #rating1::after{
         background: url({{ MEDIA_URL }}/static/star1.png);
     }
+    .rating-list li {
+        float: right;
+        color: #ddd;
+        padding: 10px 5px;
+      }
+
+      .rating-list li:hover,
+      .rating-list li:hover ~ li {
+        color: orange;
+      }
+
+      .rating-list {
+        display: inline-block;
+        list-style: none;
+      }
+      .checked {
+          color: orange;
+      }
 </style>
 <!-- start-smoth-scrolling -->
 </head>
@@ -55,10 +82,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="w3l_offers">
 			<a href="{% url 'products' %}">Today's special Offers !</a>
 		</div>
-		<div class="w3l_search">
-			<form action="#" method="post">
-				<input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
-				<input type="submit" value=" ">
+		<div class="w3l_search autocomplete" id="autocomplete" >
+			<form action="/search" method="post">
+                {% csrf_token %}
+				<input id="tags" type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+                <input type="submit" value="Search">
 			</form>
 		</div>
 		<div class="product_list_header">  
@@ -176,9 +204,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </ul>
                             </div>                  
                         </div>				
-                    </li>
+                    </li><!--
                     <li><a href="{% url 'kitchen' %}">Kitchen</a></li>
-                    <li><a href="{% url 'short_codes' %}">Short Codes</a></li>
+                    <li><a href="{% url 'short_codes' %}">Short Codes</a></li>-->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beverages<span class="caret"></span></a>
                         <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
@@ -314,6 +342,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //footer -->
 <!-- Bootstrap Core JavaScript -->
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
 <script>
 $(document).ready(function(){
 $(".dropdown").hover(            
@@ -343,6 +372,27 @@ $(".dropdown").hover(
         $().UItoTop({ easingType: 'easeOutQuart' });
                             
         });
+</script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script>
+    $( function() {
+    var productJSON = JSON.parse("{{ listOfProducts|safe }}".replace(/'/g, '"'));
+    console.log(productJSON)
+    var products = [];
+    productJSON.forEach((x) => {
+        products.push(x);
+        console.log(x);
+    });
+    console.log(products)
+    console.log(productJSON);
+    $("#tags").autocomplete({
+        source: products,
+    });
+} );
 </script>
 <!-- //here ends scrolling icon 
 <script src="{% static 'js/minicart.min.js' %}"></script>

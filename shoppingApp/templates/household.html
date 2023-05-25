@@ -13,16 +13,18 @@
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+							{% if product.avg > 0 %}
 							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
+								<img src="{{ MEDIA_URL }}static/offer.png" alt=" " class="img-responsive" />
 							</div>
+							{% endif %}
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
 											<a href="{% url 'single' product.pk %}"><img src="{{product.product_img.url}}" alt=" " class="img-responsive" /></a>
 											<p>{{product.Product_name}}</p>
-											<h4>{{product.price}} <span>120.00</span></h4>
+											<h4> {{ product.disc}} <span>{{ product.price}}</span> | ( {{product.avg}}% off)</h4>
 										</div>
 										<div class="snipcart-details">
 											<form action="/household" method="post">
@@ -59,16 +61,18 @@
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+							{% if product.avg > 0 %}
 							<div class="agile_top_brand_left_grid_pos">
-								<img src="images/offer.png" alt=" " class="img-responsive" />
+								<img src="{{ MEDIA_URL }}static/offer.png" alt=" " class="img-responsive" />
 							</div>
+							{% endif %}
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
 											<a href="{% url 'single' product.pk %}"><img src="{{product.product_img.url}}" alt=" " class="img-responsive" /></a>
 											<p>{{product.Product_name}}</p>
-											<h4>{{product.price}} <span>120.00</span></h4>
+											<h4> {{ product.disc}} <span>{{ product.price}}</span> | ( {{product.avg}}% off)</h4>
 										</div>
 										<div class="snipcart-details">
 											<form action="/household" method="post">
